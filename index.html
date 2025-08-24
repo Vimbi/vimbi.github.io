@@ -1,410 +1,669 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Приглашение на свадьбу Анастасии и ...</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Приглашение на свадьбу Анастасии и Артёма</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: 'Montserrat', sans-serif;
-            color: #333;
-            line-height: 1.6;
-            background-color: #fafafa;
+      body {
+        font-family: 'Montserrat', sans-serif;
+        color: #333;
+        line-height: 1.6;
+        background-color: #fafafa;
+        overflow-x: hidden;
+      }
+
+      .full-width-container {
+        width: 100%;
+        max-width: 1920px;
+        margin: 0 auto;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Hero section */
+      .hero {
+        height: 100vh;
+        background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+          url('https://images.unsplash.com/photo-1532712938310-34cb3982ef74?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')
+            no-repeat center center/cover;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: #fff;
+        padding: 0 20px;
+      }
+
+      .hero h1 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 4.5rem;
+        font-weight: 300;
+        margin-bottom: 1rem;
+        letter-spacing: 5px;
+      }
+
+      .hero p {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+        max-width: 800px;
+      }
+
+      .date-badge {
+        background: rgba(255, 255, 255, 0.2);
+        padding: 20px 40px;
+        border-radius: 5px;
+        margin-top: 2rem;
+        backdrop-filter: blur(5px);
+      }
+
+      /* Section styles */
+      section {
+        padding: 100px 0;
+      }
+
+      .section-title {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 3rem;
+        text-align: center;
+        margin-bottom: 3rem;
+        position: relative;
+      }
+
+      .section-title:after {
+        content: '';
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background: #d4af37;
+      }
+
+      /* About section */
+      .about-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 60px;
+      }
+
+      .about-text {
+        flex: 1;
+        min-width: 300px;
+        text-align: center;
+      }
+
+      .about-text p {
+        margin-bottom: 1.5rem;
+        font-size: 1.2rem;
+        line-height: 1.8;
+      }
+
+      .names {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 2.8rem;
+        margin: 30px 0;
+        color: #d4af37;
+      }
+
+      /* Gallery section */
+      .gallery {
+        background: linear-gradient(to bottom, #f8f4f0, #fff);
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        margin-top: 40px;
+      }
+
+      .gallery-item {
+        height: 300px;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        position: relative;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+      }
+
+      .gallery-item:hover {
+        transform: translateY(-5px);
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .gallery-item:hover img {
+        transform: scale(1.05);
+      }
+
+      /* Program section */
+      .program {
+        background-color: #f8f4f0;
+      }
+
+      .timeline {
+        display: flex;
+        flex-direction: column;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .timeline-item {
+        display: flex;
+        margin-bottom: 40px;
+      }
+
+      .timeline-time {
+        flex: 0 0 150px;
+        font-weight: 500;
+        color: #d4af37;
+        padding-right: 30px;
+        text-align: right;
+        font-size: 1.3rem;
+      }
+
+      .timeline-content {
+        flex: 1;
+        padding-left: 30px;
+        border-left: 3px solid #d4af37;
+      }
+
+      .timeline-content h3 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        color: #333;
+      }
+
+      .timeline-content p {
+        font-size: 1.1rem;
+        color: #666;
+      }
+
+      /* Location section */
+      .location-content {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 60px;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .location-info {
+        flex: 1;
+        min-width: 300px;
+      }
+
+      .location-info p {
+        margin-bottom: 20px;
+        font-size: 1.2rem;
+      }
+
+      .map {
+        flex: 1;
+        min-width: 300px;
+        height: 400px;
+        background: #eee;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Dress-code section */
+      .dress-code {
+        background-color: #f8f4f0;
+        text-align: center;
+      }
+
+      .dress-code p {
+        max-width: 800px;
+        margin: 0 auto 40px;
+        font-size: 1.2rem;
+        line-height: 1.8;
+      }
+
+      .color-palette {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+        margin-top: 40px;
+      }
+
+      .color-item {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 1rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .color-item:hover {
+        transform: scale(1.05);
+      }
+
+      /* Confirmation section */
+      .confirmation {
+        text-align: center;
+      }
+
+      .confirmation p {
+        max-width: 800px;
+        margin: 0 auto 40px;
+        font-size: 1.2rem;
+      }
+
+      .btn {
+        display: inline-block;
+        background: #d4af37;
+        color: white;
+        padding: 15px 40px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+        font-size: 1.2rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .btn:hover {
+        background: #bf9b30;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Footer */
+      footer {
+        background: #333;
+        color: #fff;
+        padding: 60px 0;
+        text-align: center;
+      }
+
+      .footer-text {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+      }
+
+      .heart {
+        color: #d4af37;
+      }
+
+      .countdown {
+        margin: 30px 0;
+        font-size: 1.3rem;
+      }
+
+      .countdown-number {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #d4af37;
+        margin: 0 10px;
+      }
+
+      /* Responsive styles */
+      @media (min-width: 1920px) {
+        .full-width-container {
+          max-width: 100%;
         }
 
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Hero section */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1532712938310-34cb3982ef74?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: #fff;
-            padding: 0 20px;
+          max-width: 1600px;
+          padding: 0 60px;
         }
 
         .hero h1 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 4rem;
-            font-weight: 300;
-            margin-bottom: 1rem;
-            letter-spacing: 3px;
+          font-size: 5.5rem;
         }
 
         .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            max-width: 700px;
-        }
-
-        .date-badge {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 15px 30px;
-            border-radius: 5px;
-            margin-top: 2rem;
-            backdrop-filter: blur(5px);
-        }
-
-        /* Section styles */
-        section {
-            padding: 80px 0;
+          font-size: 1.8rem;
         }
 
         .section-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            position: relative;
+          font-size: 3.5rem;
         }
 
-        .section-title:after {
-            content: "";
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 2px;
-            background: #d4af37;
+        .gallery-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+
+      @media (max-width: 1200px) {
+        .gallery-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      @media (max-width: 900px) {
+        .gallery-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 3rem;
         }
 
-        /* About section */
-        .about-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            gap: 40px;
+        .hero p {
+          font-size: 1.2rem;
         }
 
-        .about-text {
-            flex: 1;
-            min-width: 300px;
-            text-align: center;
-        }
-
-        .about-text p {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
-
-        .names {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.2rem;
-            margin: 20px 0;
-            color: #d4af37;
-        }
-
-        /* Program section */
-        .program {
-            background-color: #f8f4f0;
-        }
-
-        .timeline {
-            display: flex;
-            flex-direction: column;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .timeline-item {
-            display: flex;
-            margin-bottom: 30px;
+        .section-title {
+          font-size: 2.5rem;
         }
 
         .timeline-time {
-            flex: 0 0 120px;
-            font-weight: 500;
-            color: #d4af37;
-            padding-right: 20px;
-            text-align: right;
+          flex: 0 0 100px;
+          font-size: 1.1rem;
+        }
+
+        .names {
+          font-size: 2.2rem;
+        }
+
+        .gallery-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .gallery-item {
+          height: 250px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero h1 {
+          font-size: 2.2rem;
+        }
+
+        .date-badge {
+          padding: 15px 30px;
+        }
+
+        section {
+          padding: 70px 0;
+        }
+
+        .timeline-item {
+          flex-direction: column;
+        }
+
+        .timeline-time {
+          text-align: left;
+          padding-right: 0;
+          margin-bottom: 10px;
         }
 
         .timeline-content {
-            flex: 1;
-            padding-left: 20px;
-            border-left: 2px solid #d4af37;
-        }
-
-        /* Location section */
-        .location-content {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .location-info {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .location-info p {
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-        }
-
-        .map {
-            flex: 1;
-            min-width: 300px;
-            height: 300px;
-            background: #eee;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        /* Dress-code section */
-        .dress-code {
-            background-color: #f8f4f0;
-            text-align: center;
-        }
-
-        .dress-code p {
-            max-width: 700px;
-            margin: 0 auto 30px;
-            font-size: 1.1rem;
-        }
-
-        .color-palette {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 30px;
+          padding-left: 0;
+          border-left: none;
+          padding-top: 10px;
+          border-top: 2px solid #d4af37;
         }
 
         .color-item {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 0.9rem;
+          width: 100px;
+          height: 100px;
+          font-size: 0.9rem;
         }
 
-        /* Confirmation section */
-        .confirmation {
-            text-align: center;
+        .map {
+          height: 300px;
         }
-
-        .confirmation p {
-            max-width: 700px;
-            margin: 0 auto 30px;
-            font-size: 1.1rem;
-        }
-
-        .btn {
-            display: inline-block;
-            background: #d4af37;
-            color: white;
-            padding: 12px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            font-size: 1.1rem;
-        }
-
-        .btn:hover {
-            background: #bf9b30;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Footer */
-        footer {
-            background: #333;
-            color: #fff;
-            padding: 40px 0;
-            text-align: center;
-        }
-
-        .footer-text {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-        }
-
-        .heart {
-            color: #d4af37;
-        }
-
-        /* Responsive styles */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero p {
-                font-size: 1.2rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .timeline-time {
-                flex: 0 0 100px;
-            }
-
-            .names {
-                font-size: 1.8rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .date-badge {
-                padding: 10px 20px;
-            }
-
-            section {
-                padding: 60px 0;
-            }
-
-            .timeline-item {
-                flex-direction: column;
-            }
-
-            .timeline-time {
-                text-align: left;
-                padding-right: 0;
-                margin-bottom: 10px;
-            }
-
-            .timeline-content {
-                padding-left: 0;
-                border-left: none;
-                padding-top: 10px;
-                border-top: 2px solid #d4af37;
-            }
-
-            .color-item {
-                width: 80px;
-                height: 80px;
-                font-size: 0.8rem;
-            }
-        }
+      }
     </style>
-</head>
-<body>
-    <div class="hero">
+  </head>
+  <body>
+    <div class="full-width-container">
+      <div class="hero">
         <h1>Анастасия & Артём</h1>
         <p>Приглашаем вас разделить с нами радость нашего бракосочетания</p>
         <div class="date-badge">
-            <h2>15 Июня 2023</h2>
+          <h2>21 Сентября 2025</h2>
         </div>
+      </div>
+
+      <section class="about">
+        <div class="container">
+          <h2 class="section-title">Наша история</h2>
+          <div class="about-content">
+            <div class="about-text">
+              <p>
+                Мы встретились пять лет назад в прекрасный летний день и с тех
+                пор не расставались. Теперь мы хотим официально связать наши
+                судьбы и приглашаем вас стать свидетелями нашего счастья.
+              </p>
+              <div class="names">Анастасия & Артём</div>
+              <p>
+                С огромной любовью и надеждой разделить этот особенный день с
+                вами!
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="gallery">
+        <div class="container">
+          <h2 class="section-title">Наши моменты</h2>
+          <div class="gallery-grid">
+            <div class="gallery-item">
+              <img
+                src="https://optim.tildacdn.com/tild3361-6262-4734-b835-396364373635/-/cover/338x342/center/center/-/format/webp/5267179928984615644.jpg"
+                alt="Фото пары 1"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="https://sun9-24.userapi.com/s/v1/if1/yNcFg9iyWBmYSXFO8qsSAJaJf3ydH4hUJF2O4jrV__tZVcuwZIfjPIdFoeJyd1kNGBkneXIk.jpg?quality=96&as=32x28,48x42,72x64,108x95,160x141,240x212,360x318,480x424,540x477,640x566,720x636,1080x954,1280x1131,1440x1273,2444x2160&from=bu&cs=2444x0"
+                alt="Фото пары 2"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="https://sun9-86.userapi.com/c11220/u2882190/-6/w_3f082510.jpg"
+                alt="Фото пары 3"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="https://sun9-45.userapi.com/s/v1/if2/_FNjsN_qykQ0UXftC0e9hlZB1WAL6lTxK7eLg1Ic5DfLT2pAaQTLklfk-I0FPFjBcarYr4vpryTNqWBP6PHslIPt.jpg?quality=96&as=32x21,48x32,72x48,108x72,160x107,240x160,360x240,480x320,540x360,640x427,720x480,1080x720,1280x853,1440x960,2560x1707&from=bu&cs=2560x0"
+                alt="Фото пары 4"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="program">
+        <div class="container">
+          <h2 class="section-title">Программа дня</h2>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-time">15:00</div>
+              <div class="timeline-content">
+                <h3>Сбор гостей и фуршет</h3>
+                <p>
+                  Будем рады видеть вас на легком фуршете по адресу: Чебоксары,
+                  Ярославская ул., 29, банкетный зал "Мелодия". Это время для
+                  теплых встреч и первых прекрасных воспоминаний нашего дня.
+                </p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-time">15:30</div>
+              <div class="timeline-content">
+                <h3>Официальная церемония</h3>
+                <p>
+                  Станьте свидетелями самого трогательного и важного момента
+                  нашего торжества
+                </p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-time">16:00</div>
+              <div class="timeline-content">
+                <h3>Официальная церемония</h3>
+                <p>
+                  После церемонии вас ждет праздничный ужин, теплые тосты, танцы
+                  и веселье до самого конца вечера. Приготовьтесь делиться
+                  хорошим настроением!
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="location">
+        <div class="container">
+          <h2 class="section-title">Место проведения</h2>
+          <div class="location-content">
+            <div class="location-info">
+              <p>
+                <i class="fas fa-map-marker-alt"></i> Банкетный зал «Мелодия на
+                Ярославской»
+              </p>
+              <p>
+                <i class="fas fa-location-arrow"></i> г. Чебоксары, Ярославская
+                ул., 29
+              </p>
+              <p><i class="fas fa-clock"></i> Банкет начнется в 15:00</p>
+              <p><i class="fas fa-subway"></i> Остановка: Площадь Республики</p>
+            </div>
+            <div class="map">
+              <iframe
+                src="https://yandex.ru/map-widget/v1/?um=constructor%3A79d28c32d8d4b1f3b418e7d6c9e1b3a7c6c6d0e5d7c7a7d7c7a7d7c7a7d7c7a7&amp;source=constructor"
+                width="100%"
+                height="100%"
+                frameborder="0"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="dress-code">
+        <div class="container">
+          <h2 class="section-title">Дресс-код</h2>
+          <p>
+            Дорогие гости! Наш день будет наполнен светом и нежными красками.
+          </p>
+          <p>
+            Чтобы создать вместе с вами гармоничную и элегантную атмосферу
+            праздника, будем рады видеть вас в нарядах пастельных и спокойных
+            тонов. Мужчинам - костюмы, дамам - вечерние платья. С огромной
+            благодарностью за ваше чувство стиля и поддержку нашей идеи!
+          </p>
+          <div class="color-palette">
+            <div class="color-item" style="background-color: #d4af37">
+              Золотой
+            </div>
+            <div
+              class="color-item"
+              style="background-color: #f5f5f5; color: #333"
+            >
+              Слоновая кость
+            </div>
+            <div class="color-item" style="background-color: #8b4513">
+              Шоколадный
+            </div>
+            <div class="color-item" style="background-color: #6b8e23">
+              Оливковый
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="confirmation">
+        <div class="container">
+          <h2 class="section-title">Подтвердите присутствие</h2>
+          <p>
+            Пожалуйста, подтвердите ваше присутствие до 1 июня 2023 года, чтобы
+            мы могли лучше организовать наш праздник
+          </p>
+          <a href="#confirmation-form" class="btn">Подтвердить присутствие</a>
+          <div class="countdown">
+            <p>
+              До свадьбы осталось: <span class="countdown-number">12</span> дней
+              <span class="countdown-number">5</span> часов
+              <span class="countdown-number">23</span> минуты
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div class="container">
+          <p class="footer-text">С любовью, Анастасия и Артём</p>
+          <p>
+            Мы с нетерпением ждём этот особенный день и надеемся разделить его с
+            вами!
+          </p>
+        </div>
+      </footer>
     </div>
 
-    <section class="about">
-        <div class="container">
-            <h2 class="section-title">Наша история</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>Мы встретились пять лет назад в прекрасный летний день и с тех пор не расставались. Теперь мы хотим официально связать наши судьбы и приглашаем вас стать свидетелями нашего счастья.</p>
-                    <div class="names">Анастасия & Артём</div>
-                    <p>С огромной любовью и надеждой разделить этот особенный день с вами!</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <script>
+      // Обратный отсчет до свадьбы
+      function updateCountdown() {
+        const weddingDate = new Date('2023-06-15T15:00:00');
+        const now = new Date();
+        const diff = weddingDate - now;
 
-    <section class="program">
-        <div class="container">
-            <h2 class="section-title">Программа дня</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-time">15:00</div>
-                    <div class="timeline-content">
-                        <h3>Церемония</h3>
-                        <p>Торжественное бракосочетание в ЗАГСе города Москвы</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-time">17:00</div>
-                    <div class="timeline-content">
-                        <h3>Фотосессия</h3>
-                        <p>Прогулка и фотосессия в парке перед банкетом</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-time">19:00</div>
-                    <div class="timeline-content">
-                        <h3>Банкет</h3>
-                        <p>Торжественный ужин и празднование в ресторане "Времена года"</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        if (diff > 0) {
+          const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+          const hours = Math.floor(
+            (diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+          );
+          const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
 
-    <section class="location">
-        <div class="container">
-            <h2 class="section-title">Место проведения</h2>
-            <div class="location-content">
-                <div class="location-info">
-                    <p>Ресторан "Времена года"</p>
-                    <p>Москва, ул. Тверская, д. 25</p>
-                    <p>Банкет начнется в 19:00</p>
-                </div>
-                <div class="map">
-                    <!-- Здесь будет карта -->
-                    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A79d28c32d8d4b1f3b418e7d6c9e1b3a7c6c6d0e5d7c7a7d7c7a7d7c7a7d7c7a7&amp;source=constructor" width="100%" height="100%" frameborder="0"></iframe>
-                </div>
-            </div>
-        </div>
-    </section>
+          document.querySelectorAll('.countdown-number')[0].textContent = days;
+          document.querySelectorAll('.countdown-number')[1].textContent = hours;
+          document.querySelectorAll('.countdown-number')[2].textContent =
+            minutes;
+        }
+      }
 
-    <section class="dress-code">
-        <div class="container">
-            <h2 class="section-title">Дресс-код</h2>
-            <p>Мы будем рады, если вы поддержите цветовую гамму нашего торжества в своих нарядах</p>
-            <div class="color-palette">
-                <div class="color-item" style="background-color: #d4af37;">Золотой</div>
-                <div class="color-item" style="background-color: #f5f5f5; color: #333;">Слоновая кость</div>
-                <div class="color-item" style="background-color: #8b4513;">Шоколадный</div>
-                <div class="color-item" style="background-color: #6b8e23;">Оливковый</div>
-            </div>
-        </div>
-    </section>
-
-    <section class="confirmation">
-        <div class="container">
-            <h2 class="section-title">Подтвердите присутствие</h2>
-            <p>Пожалуйста, подтвердите ваше присутствие до 1 июня 2023 года</p>
-            <a href="#confirmation-form" class="btn">Подтвердить присутствие</a>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p class="footer-text">С любовью, Анастасия и Артём</p>
-            <p>Мы с нетерпением ждём этот особенный день и надеемся разделить его с вами!</p>
-        </div>
-    </footer>
-</body>
+      setInterval(updateCountdown, 60000);
+      updateCountdown();
+    </script>
+  </body>
 </html>
