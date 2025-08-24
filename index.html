@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приглашение на свадьбу Анастасии и ...</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #fafafa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1532712938310-34cb3982ef74?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            letter-spacing: 3px;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+        }
+
+        .date-badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px 30px;
+            border-radius: 5px;
+            margin-top: 2rem;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Section styles */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: #d4af37;
+        }
+
+        /* About section */
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .names {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            margin: 20px 0;
+            color: #d4af37;
+        }
+
+        /* Program section */
+        .program {
+            background-color: #f8f4f0;
+        }
+
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 30px;
+        }
+
+        .timeline-time {
+            flex: 0 0 120px;
+            font-weight: 500;
+            color: #d4af37;
+            padding-right: 20px;
+            text-align: right;
+        }
+
+        .timeline-content {
+            flex: 1;
+            padding-left: 20px;
+            border-left: 2px solid #d4af37;
+        }
+
+        /* Location section */
+        .location-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .location-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .location-info p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .map {
+            flex: 1;
+            min-width: 300px;
+            height: 300px;
+            background: #eee;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        /* Dress-code section */
+        .dress-code {
+            background-color: #f8f4f0;
+            text-align: center;
+        }
+
+        .dress-code p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+
+        .color-palette {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .color-item {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        /* Confirmation section */
+        .confirmation {
+            text-align: center;
+        }
+
+        .confirmation p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #d4af37;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+
+        .btn:hover {
+            background: #bf9b30;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-text {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .heart {
+            color: #d4af37;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .timeline-time {
+                flex: 0 0 100px;
+            }
+
+            .names {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .date-badge {
+                padding: 10px 20px;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .timeline-item {
+                flex-direction: column;
+            }
+
+            .timeline-time {
+                text-align: left;
+                padding-right: 0;
+                margin-bottom: 10px;
+            }
+
+            .timeline-content {
+                padding-left: 0;
+                border-left: none;
+                padding-top: 10px;
+                border-top: 2px solid #d4af37;
+            }
+
+            .color-item {
+                width: 80px;
+                height: 80px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>Анастасия & Артём</h1>
+        <p>Приглашаем вас разделить с нами радость нашего бракосочетания</p>
+        <div class="date-badge">
+            <h2>15 Июня 2023</h2>
+        </div>
+    </div>
+
+    <section class="about">
+        <div class="container">
+            <h2 class="section-title">Наша история</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Мы встретились пять лет назад в прекрасный летний день и с тех пор не расставались. Теперь мы хотим официально связать наши судьбы и приглашаем вас стать свидетелями нашего счастья.</p>
+                    <div class="names">Анастасия & Артём</div>
+                    <p>С огромной любовью и надеждой разделить этот особенный день с вами!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="program">
+        <div class="container">
+            <h2 class="section-title">Программа дня</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">15:00</div>
+                    <div class="timeline-content">
+                        <h3>Церемония</h3>
+                        <p>Торжественное бракосочетание в ЗАГСе города Москвы</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">17:00</div>
+                    <div class="timeline-content">
+                        <h3>Фотосессия</h3>
+                        <p>Прогулка и фотосессия в парке перед банкетом</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">19:00</div>
+                    <div class="timeline-content">
+                        <h3>Банкет</h3>
+                        <p>Торжественный ужин и празднование в ресторане "Времена года"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="location">
+        <div class="container">
+            <h2 class="section-title">Место проведения</h2>
+            <div class="location-content">
+                <div class="location-info">
+                    <p>Ресторан "Времена года"</p>
+                    <p>Москва, ул. Тверская, д. 25</p>
+                    <p>Банкет начнется в 19:00</p>
+                </div>
+                <div class="map">
+                    <!-- Здесь будет карта -->
+                    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A79d28c32d8d4b1f3b418e7d6c9e1b3a7c6c6d0e5d7c7a7d7c7a7d7c7a7d7c7a7&amp;source=constructor" width="100%" height="100%" frameborder="0"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="dress-code">
+        <div class="container">
+            <h2 class="section-title">Дресс-код</h2>
+            <p>Мы будем рады, если вы поддержите цветовую гамму нашего торжества в своих нарядах</p>
+            <div class="color-palette">
+                <div class="color-item" style="background-color: #d4af37;">Золотой</div>
+                <div class="color-item" style="background-color: #f5f5f5; color: #333;">Слоновая кость</div>
+                <div class="color-item" style="background-color: #8b4513;">Шоколадный</div>
+                <div class="color-item" style="background-color: #6b8e23;">Оливковый</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="confirmation">
+        <div class="container">
+            <h2 class="section-title">Подтвердите присутствие</h2>
+            <p>Пожалуйста, подтвердите ваше присутствие до 1 июня 2023 года</p>
+            <a href="#confirmation-form" class="btn">Подтвердить присутствие</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p class="footer-text">С любовью, Анастасия и Артём</p>
+            <p>Мы с нетерпением ждём этот особенный день и надеемся разделить его с вами!</p>
+        </div>
+    </footer>
+</body>
+</html>
